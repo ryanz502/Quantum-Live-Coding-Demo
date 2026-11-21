@@ -1,0 +1,2 @@
+# Quantum-Live-Coding-Demo
+An experimental live coding system integrating Strudel, Max/MSP, and quantum computing.
