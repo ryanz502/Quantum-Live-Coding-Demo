@@ -48,6 +48,29 @@ Before running the patch, please install:
 
 The system also uses Strudel for live coding, with MIDI notes transmitted to VST instruments hosted in Max/MSP.
 
+## Try It with Strudel
+
+You can open [Strudel](https://strudel.cc/) and enter the following code to experiment with the system's sound output.
+
+**Manual typing is recommended instead of copying and pasting**, as it allows the typing monitor in Max/MSP to detect your keyboard activity and use it to influence quantum gate operations and the resulting sound processing.
+
+Make sure the MIDI output device (`to Max 1`) is correctly configured before running the code.
+
+```javascript
+$pf: n("0 4 0 5 0 6 2 7").slow(2).scale("d3:minor").velocity(.6).midi('to Max 1').midichan(1)
+
+$pf_h: "2"
+  .off(1/4, add(1))
+  .off(1/6, add(4))
+.n().slow(2).scale("d5:minor:pentatonic").velocity(.9).midi('to Max 1').midichan(1)
+
+$bass: n("0@3 -").scale("d2:minor").velocity(.6).midi('to Max 1').midichan(3)
+
+$bd: note("<[60 - - -] [60 - - 60]>").velocity(.6).midi('to Max 1').midichan(2)
+
+$hh: note("44").fast("<16@3 32>".fast(4)).velocity(0.7).degradeBy(0.5).midi('to Max 1').midichan(2)
+```
+
 ## Demonstration
 
 A video demonstration of the prototype is available on YouTube:
